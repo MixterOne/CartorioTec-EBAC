@@ -3,62 +3,63 @@
 #include <locale.h> //biblioteca de alocações de texto por região
 #include <string.h> //biblioteca responsável por cuidar das string
 
-int registro() //Função responsavel por cadastrar os usuários no sistema
-{
-	//Inicio criação de variáveis/string
-	char arquivo[40];
-	char cpf[40];
-	char nome[40];
-	char sobrenome[40];
-	char cargo[40];
-	//Fim criação de variáveis/string
-	
-	
-	printf("Digite o CPF a ser cadastrado: "); //coletando informação do usuário
-	scanf("%s", cpf); //%s se refere a strings
-	
-	strcpy(arquivo, cpf); //Responsavel por copiar os valores das strings
-	
-	FILE *file; //cria o arquivo
-	file = fopen(arquivo, "w"); //cria o arquivo
-	fprintf(file, cpf); //salva o calor da variável
-	fclose(file); //fecha o arquivo
-	
-	file = fopen(arquivo, "a");
-	fprintf(file, ",");
-	fclose(file);
-	
-	printf("Digite o nome a ser cadastrado: ");
-	scanf("%s", nome);
-	
-	file = fopen(arquivo, "a");
-	fprintf(file, nome);
-	fclose(file);
-	
-	file = fopen(arquivo, "a");
-	fprintf(file, ",");
-	fclose(file);
-	
-	printf("Digite o sobrenome a ser cadastrado: ");
-	scanf("%s", sobrenome);
-	
-	file = fopen(arquivo, "a");
-	fprintf(file, sobrenome);
-	fclose(file);
-	
-	file = fopen(arquivo, "a");
-	fprintf(file, ",");
-	fclose(file);
-	
-	printf("Digite o cargo a ser cadastrado: ");
-	scanf("%s", cargo);
-	
-	file = fopen(arquivo, "a");
-	fprintf(file, cargo);
-	fclose(file);
-	
-	system("pause");
-	
+int registro() {
+    char arquivo[40];
+    char cpf[40];
+    char nome[40];
+    char sobrenome[40];
+    char cargo[40];
+    int escolha = 1; // Inicializamos com 1 para entrar no loop pelo menos uma vez
+
+    while (escolha == 1) {
+        printf("Digite o CPF a ser cadastrado: ");
+        scanf("%s", cpf);
+
+        strcpy(arquivo, cpf);
+
+        FILE *file;
+        file = fopen(arquivo, "w");
+        fprintf(file, cpf);
+        fclose(file);
+
+        file = fopen(arquivo, "a");
+        fprintf(file, ",");
+        fclose(file);
+
+        printf("Digite o nome a ser cadastrado: ");
+        scanf("%s", nome);
+
+        file = fopen(arquivo, "a");
+        fprintf(file, nome);
+        fclose(file);
+
+        file = fopen(arquivo, "a");
+        fprintf(file, ",");
+        fclose(file);
+
+        printf("Digite o sobrenome a ser cadastrado: ");
+        scanf("%s", sobrenome);
+
+        file = fopen(arquivo, "a");
+        fprintf(file, sobrenome);
+        fclose(file);
+
+        file = fopen(arquivo, "a");
+        fprintf(file, ",");
+        fclose(file);
+
+        printf("Digite o cargo a ser cadastrado: ");
+        scanf("%s", cargo);
+
+        file = fopen(arquivo, "a");
+        fprintf(file, cargo);
+        fclose(file);
+
+        printf("Deseja cadastrar mais um usuário? (1 - Sim, 0 - Não): ");
+        scanf("%d", &escolha);
+        
+        system("cls");
+    }
 }
 
 int consulta()
@@ -116,6 +117,7 @@ int main()
 	int opcao = 0; //Definindo as variáveis
 	int laco = 1;
 	
+	
 	for(laco=1; laco=1;)
 	{
 		system("cls");
@@ -133,6 +135,7 @@ int main()
 		scanf("%d", &opcao); //Armazenando a escolha do usuário
 	
 		system("cls"); //responsavel por limpar a tela
+		
 		
 		switch(opcao) //Inicio da seleção do menu
 		{
